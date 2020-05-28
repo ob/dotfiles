@@ -4,6 +4,8 @@ set -euo pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+test -f /etc/rdev.conf && ./rdev.sh
+
 for dotfile in "$DIR"/dotfiles/*
 do
     # don't replace it if it's already there
@@ -12,3 +14,4 @@ do
     test -f "$home_dotfile" -o -L "$home_dotfile" && continue
     ln -s "$dotfile" "$home_dotfile"
 done
+
