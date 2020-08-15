@@ -19,5 +19,5 @@ git clone --recursive https://github.com/ob/prezto.git "${HOME}/.zprezto"
 
 for rcfile in "${HOME}"/.zprezto/runcoms/*; do
   test "$(basename $rcfile)" = "README.md" && continue
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  ln -s "$rcfile" "${HOME}/.${rcfile:t}"
 done
