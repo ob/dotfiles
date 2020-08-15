@@ -4,12 +4,14 @@ set -euo pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-test -d "$HOME/dotfiles" || {
+if [[ -d "$HOME/dotfiles" ]]; then
     echo Clonning dotfiles and restarting
     git clone git@github.com:ob/dotfiles "$HOME/dotfiles"
     cd "$HOME/dotfiles"
-    exec "$HOME/install.sh"
-}
+    exec "$HOME/dotfiles/install.sh"
+elif [[ $DIR != "$HOME/dotfiles" ]]; then
+    exec "$HOME/dotfiles/install.sh"
+fi
 
 "$DIR/install-common.sh"
 
