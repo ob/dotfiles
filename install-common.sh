@@ -24,6 +24,6 @@ fi
 
 for rcfile in "${HOME}"/.zprezto/runcoms/*; do
   test "$(basename $rcfile)" = "README.md" && continue
-  test -h "${HOME}/.${rcfile:t}" && continue
-  ln -s "$rcfile" "${HOME}/.${rcfile:t}"
+  test -h "${HOME}/.${rcfile}" && continue
+  ln -s "$rcfile" "${HOME}/.${rcfile}"
 done
