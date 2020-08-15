@@ -12,6 +12,8 @@ fi
 
 if [[ $(pwd) != "$HOME/dotfiles" ]]; then
     echo "Re-running from $HOME/dotfiles"
+    cd "$HOME/dotfiles"
+    git pull
     exec "$HOME/dotfiles/install.sh"
 fi
 
