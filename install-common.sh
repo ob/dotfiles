@@ -15,9 +15,15 @@ do
 done
 
 # set up zpresto
-git clone --recursive https://github.com/ob/prezto.git "${HOME}/.zprezto"
+if [[ ! -d "$HOME/.zpresto" ]]; then
+    git clone --recursive https://github.com/ob/prezto.git "${HOME}/.zprezto"
+else
+    cd "$HOME/.zpresto"
+    git pull
+fi
 
 for rcfile in "${HOME}"/.zprezto/runcoms/*; do
   test "$(basename $rcfile)" = "README.md" && continue
+  test -h "${HOME}/.${rcfile:t}" && continue
   ln -s "$rcfile" "${HOME}/.${rcfile:t}"
 done
