@@ -2,17 +2,20 @@
 
 set -euo pipefail
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-if [[ -d "$HOME/dotfiles" ]]; then
+if [[ ! -d "$HOME/dotfiles" ]]; then
     echo Clonning dotfiles and restarting
     git clone git@github.com:ob/dotfiles "$HOME/dotfiles"
     cd "$HOME/dotfiles"
     exec "$HOME/dotfiles/install.sh"
-elif [[ $DIR != "$HOME/dotfiles" ]]; then
+fi
+
+if [[ $(pwd) != "$HOME/dotfiles" ]]; then
+    echo "Re-running from $HOME/dotfiles"
     exec "$HOME/dotfiles/install.sh"
 fi
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 "$DIR/install-common.sh"
 
 OS=$(uname -s)
