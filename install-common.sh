@@ -15,10 +15,10 @@ do
 done
 
 # set up zpresto
-if [[ ! -d "$HOME/.zpresto" ]]; then
+if [[ ! -d "$HOME/.zprezto" ]]; then
     git clone --recursive https://github.com/ob/prezto.git "${HOME}/.zprezto"
 else
-    cd "$HOME/.zpresto"
+    cd "$HOME/.zprezto"
     git pull
 fi
 
