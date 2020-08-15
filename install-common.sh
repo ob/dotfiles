@@ -26,5 +26,6 @@ for rcfile in "${HOME}"/.zprezto/runcoms/*; do
   rc=$(basename "$rcfile")
   test "$rc" = "README.md" && continue
   test -L "${HOME}/.${rc}" && continue
+  test -f "${HOME}/.${rc}" && mv "${HOME}/.${rc}" "${HOME}/.${rc}.old"
   ln -s "$rcfile" "${HOME}/.${rc}"
 done
