@@ -23,7 +23,8 @@ else
 fi
 
 for rcfile in "${HOME}"/.zprezto/runcoms/*; do
-  test "$(basename $rcfile)" = "README.md" && continue
-  test -h "${HOME}/.${rcfile}" && continue
-  ln -s "$rcfile" "${HOME}/.$(basename ${rcfile})"
+  rc=$(basename "$rcfile")
+  test "$rc" = "README.md" && continue
+  test -h "${HOME}/.${rc}" && continue
+  ln -s "$rcfile" "${HOME}/.${rc}"
 done
