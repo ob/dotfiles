@@ -7,3 +7,8 @@ bindkey "^N" history-beginning-search-forward-end
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+
+# Fix cursor blinking on linux.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/issues/171
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[cursor]=underline
