@@ -17,7 +17,7 @@ command -v brew >/dev/null 2>&1 || {
 
 msg_status "Installing necessary fonts"
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code font-inconsolata font-hack
+brew install --cask font-fira-code font-inconsolata font-hack
 
 msg_status "Installing brew packages"
 brew install global htop jq ripgrep shellcheck
