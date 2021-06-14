@@ -36,3 +36,5 @@
 	wsErrorHighlight = all
 [receive]
 	denyCurrentBranch = warn
+[pull]
+	rebase = false
