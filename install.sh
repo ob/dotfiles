@@ -2,19 +2,20 @@
 
 set -euo pipefail
 
+DOTFILES="$HOME/.dotfiles"
 
-if [[ ! -d "$HOME/dotfiles" ]]; then
+if [[ ! -d "$DOTFILES" ]]; then
     echo Clonning dotfiles and restarting
-    git clone git@github.com:ob/dotfiles "$HOME/dotfiles"
-    cd "$HOME/dotfiles"
-    exec "$HOME/dotfiles/install.sh"
+    git clone git@github.com:ob/dotfiles "$DOTFILES"
+    cd "$DOTFILES"
+    exec "$DOTFILES/install.sh"
 fi
 
-if [[ $(pwd) != "$HOME/dotfiles" ]]; then
-    echo "Re-running from $HOME/dotfiles"
-    cd "$HOME/dotfiles"
+if [[ $(pwd) != "$DOTFILES" ]]; then
+    echo "Re-running from $DOTFILES"
+    cd "$DOTFILES"
     git pull
-    exec "$HOME/dotfiles/install.sh"
+    exec "$DOTFILES/install.sh"
 fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
