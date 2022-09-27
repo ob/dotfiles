@@ -21,3 +21,8 @@ brew install --cask font-fira-code font-inconsolata font-hack
 
 msg_status "Installing brew packages"
 brew install global htop jq ripgrep shellcheck
+
+msg_status "Installing Latest Xcode via Xcodes"
+brew install aria2
+brew install robotsandpencils/made/xcodes
+xcodes install --experimental-unxip --latest
