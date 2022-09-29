@@ -4,16 +4,6 @@
 <dict>
 	<key>AllowClipboardAccess</key>
 	<true/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<true/>
 	<key>BracketedPasteMode</key>
@@ -33,6 +23,8 @@
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>ASCII Ligatures</key>
+			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -243,6 +235,8 @@
 			<string>Default</string>
 			<key>Disable Window Resizing</key>
 			<true/>
+			<key>Enable Triggers in Interactive Apps</key>
+			<false/>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -559,7 +553,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Inconsolata-Regular 18</string>
+			<string>Inconsolata-Regular 20</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -571,7 +565,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Selected Text Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -590,6 +584,15 @@
 				<key>Red Component</key>
 				<real>0.70980000495910645</real>
 			</dict>
+			<key>Semantic History</key>
+			<dict>
+				<key>action</key>
+				<string>editor</string>
+				<key>editor</key>
+				<string>com.microsoft.VSCode</string>
+				<key>text</key>
+				<string></string>
+			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
 			<key>Shortcut</key>
@@ -604,8 +607,63 @@
 			<string>xterm-256color</string>
 			<key>Transparency</key>
 			<real>0.0</real>
-			<key>Unlimited Scrollback</key>
+			<key>Triggers</key>
+			<array>
+				<dict>
+					<key>action</key>
+					<string>iTermHyperlinkTrigger</string>
+					<key>parameter</key>
+					<string>https://go/jira%20\0</string>
+					<key>partial</key>
+					<false/>
+					<key>regex</key>
+					<string>TOOLS-[0-9]+</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermHyperlinkTrigger</string>
+					<key>parameter</key>
+					<string>https://go/jira%20\0</string>
+					<key>regex</key>
+					<string>DELI-[0-9]+</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermHyperlinkTrigger</string>
+					<key>parameter</key>
+					<string>https://go/rb%20\1</string>
+					<key>regex</key>
+					<string>RB=([0-9]+)</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermHyperlinkTrigger</string>
+					<key>parameter</key>
+					<string>https://go/jira%20\0</string>
+					<key>regex</key>
+					<string>MOBINF-[0-9]+</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermHyperlinkTrigger</string>
+					<key>parameter</key>
+					<string>https://go/jira%20\0</string>
+					<key>regex</key>
+					<string>EXC-[0-9]+</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>iTermHyperlinkTrigger</string>
+					<key>parameter</key>
+					<string>https://bugs.openldap.org/show_bug.cgi?id=\1</string>
+					<key>regex</key>
+					<string>ITS#([0-9]+)</string>
+				</dict>
+			</array>
+			<key>Triggers Use Interpolated Strings</key>
 			<false/>
+			<key>Unlimited Scrollback</key>
+			<true/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -2621,8 +2679,14 @@
 	<false/>
 	<key>TabTransform</key>
 	<integer>0</integer>
+	<key>UseBorder</key>
+	<true/>
+	<key>UseMetal</key>
+	<true/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
