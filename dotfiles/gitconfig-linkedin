@@ -4,3 +4,5 @@
 
 [url "ssh://git.corp.linkedin.com:29418"]
 	insteadOf = https://golang.linkedin.com
+[pull]
+	rebase = true
